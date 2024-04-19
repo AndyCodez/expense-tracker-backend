@@ -1,7 +1,12 @@
 import express from 'express';
+import mongoose from 'mongoose';
 import routes from './routes/index.mjs';
 
 export function initializeApp() {
+    mongoose.connect(process.env.DATABASE_URL)
+        .then(() => console.log('Connected to database successfully'))
+        .catch((err) => console.log(`Error connecting to database: ${err}`));
+
     const app = express();
 
     app.use(routes);
