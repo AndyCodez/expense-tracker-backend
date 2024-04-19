@@ -5,9 +5,16 @@ import { checkSchema, matchedData, validationResult } from "express-validator";
 
 const router = Router();
 
-router.get('/api/expenses', (req, res) => {
-
-    res.sendStatus(200);
+router.get('/api/expenses', async (req, res) => {
+    await Expense.find()
+        .then((foundExpenses) => {
+            console.log("Fetching expenses");
+            return res.status(200).send(foundExpenses);
+        })
+        .catch((error) => {
+            console.error(`Error fetching expenses: ${error}`);
+            return res.sendStatus(500);
+        });
 });
 
 
