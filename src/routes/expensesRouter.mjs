@@ -8,7 +8,7 @@ const router = Router();
 router.get('/api/expenses', async (req, res) => {
     try {
         const foundExpenses = await Expense.find();
-        console.log("Fetching expenses");
+        console.log("Fetching expenses", foundExpenses);
         return res.status(200).send(foundExpenses);
     } catch (error) {
         console.error('Error fetching expenses:', error);
