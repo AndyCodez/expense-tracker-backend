@@ -11,12 +11,23 @@ export const createExpenseValidationSchema = {
     },
     amount: {
         notEmpty: {
-            errorMessage: "Amount cannot not be empty"
+            errorMessage: "Amount cannot be empty"
         },
     },
     category: {
         notEmpty: {
-            errorMessage: "Category cannot not be empty"
+            errorMessage: "Category cannot be empty"
         },
     },
 }
+
+export const createUserValidationSchema = {
+    username: {
+        notEmpty: {
+            errorMessage: "Username cannot be empty",
+        }
+    },
+    password: {
+        notEmpty: true,
+    },
+};
