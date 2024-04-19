@@ -4,6 +4,7 @@ const router = Router();
 
 router.get('/api/expenses', (req, res) => {
 
+    res.sendStatus(200);
 });
 
 export default router;
